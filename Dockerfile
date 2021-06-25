@@ -394,7 +394,7 @@ FROM        base AS release
 
 ENV         LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64
 
-CMD         ["--help"]
-ENTRYPOINT  ["ffmpeg"]
+
+ENTRYPOINT  ["/bin/bash"]
 
 COPY --from=build /usr/local /usr/local/
