@@ -382,10 +382,6 @@ RUN \
         cd tools && \
         make qt-faststart && cp qt-faststart ${PREFIX}/bin/
 
-
-## Get the transitions
-RUN git clone https://github.com/gl-transitions/gl-transitions.git /opt/gl-transitions
-
 ## cleanup
 RUN \
         ldd ${PREFIX}/bin/ffmpeg | grep opt/ffmpeg | cut -d ' ' -f 3 | xargs -i cp {} /usr/local/lib/ && \
