@@ -1,5 +1,9 @@
 # ffmpeg-gl-transition
 
+Sample command:
+after building docker image and cloning onto host gl-transitions
+docker run -v /Users/jack/Documents/NanoFlickPrototypes/gltrans:/mnt/host <docker image ID> -c "(Xvfb :1 -screen 0 1280x1024x16 &) && env DISPLAY=:1 ffmpeg -i /mnt/host/0.mp4 -i /mnt/host/1.mp4 -filter_complex \"gltransition=duration=1:source=/mnt/host/gl-transitions/transitions/crosswarp.glsl,select=eq(n\,7)\" -vframes 1 -y /mnt/host/out.png"
+
 > FFmpeg filter for applying GLSL transitions between video streams ([gl-transitions](https://gl-transitions.com/)).
 
 ![](https://raw.githubusercontent.com/transitive-bullshit/ffmpeg-gl-transition/master/media/crosswarp.gif)
