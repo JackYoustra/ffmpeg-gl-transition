@@ -390,7 +390,7 @@ RUN \
         LD_LIBRARY_PATH=/usr/local/lib ffmpeg -buildconf
 
 ## Get the transitions
-RUN git clone https://github.com/gl-transitions/gl-transitions.git /home/gl-transitions
+RUN git clone https://github.com/gl-transitions/gl-transitions.git /opt/gl-transitions
 
 FROM        base AS release
 
