@@ -382,15 +382,16 @@ RUN \
         cd tools && \
         make qt-faststart && cp qt-faststart ${PREFIX}/bin/
 
+
+## Get the transitions
+RUN git clone https://github.com/gl-transitions/gl-transitions.git /opt/gl-transitions
+
 ## cleanup
 RUN \
         ldd ${PREFIX}/bin/ffmpeg | grep opt/ffmpeg | cut -d ' ' -f 3 | xargs -i cp {} /usr/local/lib/ && \
         cp ${PREFIX}/bin/* /usr/local/bin/ && \
         cp -r ${PREFIX}/share/ffmpeg /usr/local/share/ && \
         LD_LIBRARY_PATH=/usr/local/lib ffmpeg -buildconf
-
-## Get the transitions
-RUN git clone https://github.com/gl-transitions/gl-transitions.git /opt/gl-transitions
 
 FROM        base AS release
 
